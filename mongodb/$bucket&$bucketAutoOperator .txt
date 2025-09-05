@@ -1,1 +1,30 @@
-new push again
+db.students.aggregate([
+    {
+        $bucket:{
+            groupBy:"$score",
+            boundaries:[0,50,70,90],
+            default:"other",
+            output:{
+                "count":{$sum:1},
+                "students":{$push:"$name"}
+            }
+        }
+    }
+])
+
+
+
+
+db.students.aggregate([
+  {
+    $bucketAuto: {
+      groupBy: "$score",
+      buckets: 50,
+      output: {
+        "count": { $sum: 1 },
+        "students": { $push: "$name" }
+      }
+    }
+  }
+])
+
