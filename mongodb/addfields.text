@@ -1,0 +1,21 @@
+db.students.aggregate([
+    {
+        $addFields:{
+            totalMarks:{$sum:[ "$math" ,"$english"]}
+        }
+    }
+])
+
+db.students.aggregate([
+  {
+    $addFields: {
+      grade:{
+        $cond:{
+            if:{$gte: ["$math",70] },
+            then:"pass",
+            else:"fail"
+        }
+      }
+    }
+  }
+])
