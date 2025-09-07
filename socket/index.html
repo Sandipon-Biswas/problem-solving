@@ -6,14 +6,25 @@
     <title>Document</title>
 </head>
 <body>
+    <input id="name" type="text">
+    <button onclick="send()" >send</button>
     <h1 id="d" ></h1>
      <script src="/socket.io/socket.io.js"></script>
      <script>
-      const socket = io();
-      socket.on('a',(sms)=>{
-        document.getElementById("d").innerHTML=""
-        document.getElementById("d").innerHTML=sms;
+      const socket = io("/a");
+      socket.on("aa",(sss)=>{
       })
+    //   socket.on('a',(sms)=>{
+    //     document.getElementById("d").innerHTML=""
+    //     document.getElementById("d").innerHTML=sms;
+    //   })
+    // socket.on("aa",(sms)=>{
+    //     document.getElementById("d").innerHTML=sms;
+    // })
+    // function send() {
+    //     let name=document.getElementById("name").value;
+    //     socket.emit("aa",name);
+    // }
      
      </script>
 </body>
