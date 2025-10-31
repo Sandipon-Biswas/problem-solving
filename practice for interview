@@ -1,0 +1,51 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+
+void solve()
+{
+
+//start
+string ss; getline(cin, ss);
+transform(ss.begin(), ss.end(), ss.begin(), ::tolower);
+string s="";
+vector<string>v;
+for(auto u:ss){
+    if( s.empty() ){
+        s+=u;
+    }
+    else{
+
+    char a=s.back();
+    if(u>a){s+=u;}else{
+        v.push_back(s);s.clear();s+=u;
+    }
+
+    }
+}
+v.push_back(s);
+
+int m=0;
+for(auto u:v){ if(u.size()>m)m=u.size(); }
+string finalstring="";
+for(auto u:v){if(u.size()==m )finalstring+=u;}
+cout<<finalstring<<endl;
+
+
+
+
+
+}
+// Main
+int main()
+{
+
+
+
+      solve();
+        //solve();
+
+    return 0;
+}
+// End
